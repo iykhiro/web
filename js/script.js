@@ -2,23 +2,6 @@ if (window.top !== window.self) {
   window.top.location = window.self.location;
 }
 
-setInterval(() => {
-  debugger;
-}, 1000);
-
-const e = new Image();
-Object.defineProperty(e, 'id', {
-  get: function () {
-    document.body.innerHTML = '';
-    throw new Error();
-  }
-});
-console.log(e);
-
-if (Function.prototype.toString.toString().length !== Function.toString().length) {
-  document.body.innerHTML = '';
-}
-
 function criarEstrelas(container, quantidade, tamanhoMin, tamanhoMax) {
   for (let i = 0; i < quantidade; i++) {
     const star = document.createElement('div');
@@ -79,11 +62,6 @@ texto.addEventListener('keydown', (e) => {
     toggleMusica();
   }
 });
-
-document.addEventListener('contextmenu', e => e.preventDefault());
-document.addEventListener('copy', e => e.preventDefault());
-document.addEventListener('cut', e => e.preventDefault());
-document.addEventListener('paste', e => e.preventDefault());
 
 document.addEventListener('touchmove', (e) => {
   e.preventDefault();
