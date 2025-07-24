@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: none;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: #000;
+}
+
+.noite {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.estrelas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  will-change: transform;
+  opacity: 0;
+}
+
+.star {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: tkl 2s infinite ease-in-out;
+}
+
+.texto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  font-family: 'Roboto Condensed', sans-serif;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #fff, #f0f0f0, #fff);
+  background-size: 300% 300%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 3s ease-in-out infinite, glow 2s ease-in-out infinite;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 0 16px rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.texto:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.creditos {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #fff;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.creditos.mostrar {
+  opacity: 1;
+}
+
+.aparecer {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 0 16px rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 0.7);
+  }
+}
+
+@keyframes tkl {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0; }
+}
+
+@keyframes tkl2 {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.1; }
+}
+
+@keyframes tkl3 {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
