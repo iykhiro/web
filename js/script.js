@@ -84,4 +84,13 @@ window.addEventListener('load', () => {
   setTimeout(() => camada2.classList.add('aparecer'), 200);
   setTimeout(() => camada3.classList.add('aparecer'), 400);
   musica.load();
+
+  const preloader = document.getElementById('preloader');
+  const mainContent = document.querySelector('main');
+
+  preloader.style.opacity = '0';
+  setTimeout(() => {
+    preloader.style.display = 'none';
+    mainContent.style.display = 'block';
+  }, 500);
 });
