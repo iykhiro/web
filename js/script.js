@@ -94,3 +94,15 @@ window.addEventListener('load', () => {
     mainContent.style.display = 'block';
   }, 500);
 });
+
+document.addEventListener('click', function(e) {
+  const ripple = document.createElement('span');
+  ripple.classList.add('ripple');
+  ripple.style.left = `${e.clientX}px`;
+  ripple.style.top = `${e.clientY}px`;
+  document.body.appendChild(ripple);
+
+  setTimeout(() => {
+    ripple.remove();
+  }, 1000);
+});
