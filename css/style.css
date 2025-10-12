@@ -115,6 +115,18 @@ html, body {
   margin-bottom: 15px;
 }
 
+.ripple {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  animation: rippleEffect 1s ease-out;
+  z-index: 999;
+}
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -153,4 +165,11 @@ html, body {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: translate(-50%, -50%) scale(20);
+    opacity: 0;
+  }
 }
