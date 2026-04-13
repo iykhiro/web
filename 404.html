@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="./img/l.ico" type="image/x-icon">
+  <title>404 | ウェブサイト</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      font-family: 'Roboto Condensed', sans-serif;
+      color: #fff;
+    }
+
+    main {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .stars {
+      position: absolute;
+      inset: 0;
+    }
+
+    .star {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      animation: glow 2s infinite ease-in-out;
+    }
+
+    .content {
+      position: relative;
+      z-index: 10;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 85px;
+      letter-spacing: 4px;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+    }
+
+    p {
+      margin: 15px 0 30px;
+      font-size: 18px;
+      opacity: 0.8;
+    }
+
+    a {
+      display: inline-block;
+      padding: 12px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      text-decoration: none;
+      color: #fff;
+      transition: 0.3s;
+      backdrop-filter: blur(6px);
+    }
+
+    a:hover {
+      background: #fff;
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        opacity: 0.8;
+      }
+
+      50% {
+        opacity: 0.2;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="stars" id="stars"></div>
+
+    <div class="content">
+      <h1>404 | Error</h1>
+      <p id="error-url"></p>
+      <a href="/">Back to Home</a>
+    </div>
+  </main>
+
+  <script>
+    function createStars() {
+      const container = document.getElementById('stars');
+
+      for (let i = 0; i < 120; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+
+        const size = Math.random() * 3 + 1;
+        const top = Math.random() * 100;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 3 + 2;
+        const delay = Math.random() * 4;
+
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.top = `${top}%`;
+        star.style.left = `${left}%`;
+        star.style.animationDuration = `${duration}s`;
+        star.style.animationDelay = `${delay}s`;
+
+        container.appendChild(star);
+      }
+    }
+
+    createStars();
+
+    const path = window.location.pathname;
+
+    document.getElementById('error-url').textContent =
+      `The requested URL ${path} was not found on this server.`;
+  </script>
+</body>
+
+</html>
